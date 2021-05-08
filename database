@@ -1,0 +1,86 @@
+// DIPARTIMENTO
+
+    categoria: TEXT; NOT NULLABLE
+    sede: VARCHAR(128) ; NOT NULLABLE
+    contatti: VARCHAR(128) ; NOT NULLABLE
+    direttore: VARCHAR(64) ; NOT NULLABLE
+
+// CORSO DI LAUREA
+
+    sede: VARCHAR(128) ; NOT NULLABLE
+    condizioni-studenti:  TINYINT ; DEFAULT(0)
+    dipartimenti: VARCHAR(128) ; NOT NULLABLE
+    materiale-didattico: VARCHAR ; NOT NULLABLE
+    titolo-laurea: VARCHAR(128) ; NOT NULLABLE
+
+
+// CORSO
+
+    durata-corso: VARCHAR(16) ; NOT NULLABLE
+    calendario-lezioni: VARCHAR(128) ; NOT NULLABLE
+    programma-corso: TEXT ; NOT NULLABLE
+    numero-studenti: TINYINT ; NULLABLE
+    ore-totali-corso: TINYINT ; NOT NULLABLE
+
+// INSEGNANTE
+
+    id-insegnante: INT; NOT NULLABLE ; UNIQUE
+    nome: VARCHAR(64) ; NOT NULLABLE
+    cognome: VARCHAR(64) ; NOT NULLABLE
+    genere: VARCHAR(16) ; NOT NULLABLE 
+    materia: VARCHAR(32) ; NOT NULLABLE
+    ruolo: VARCHAR(32) ; NOT NULLABLE
+    indirizzo: VARCHAR ; NOT NULLABLE
+    n-tel: VARCHAR(32) ; NULLABLE 
+    foto-profilo: VARCHAR ; NOT NULLABLE
+    data-nascita: DATE ; NOT NULLABLE
+    luogo-nascita: VARCHAR(64) ; NOT NULLABLE
+    cf: VARCHAR(64) ; NOT NULLABLE ; UNIQUE
+    data-assunzione: DATE ; NOT NULLABLE
+    stipendio: INT ; NOT NULLABLE 
+    tipo-contratto: VARCHAR(64) ; NOT NULLABLE
+    email: VARCHAR(128) ; NOT NULLABLE ; UNIQUE
+    corsi-attivi: TINYINT ; DEFAULT(0)
+    turno: VARCHAR(128) ; NULLABLE
+
+// APPELLO
+
+    data-appello: DATE ; NOT NULLABLE 
+    materia: VARCHAR(64) ; NOT NULLABLE
+    tipologia-appello: VARCHAR(64) ; NULLABLE
+    id-professore: INT; NOT NULLABLE
+    id-studente: INT; NOT NULLABLE
+    tipo-prova: VARCHAR(16) ; NULLABLE
+    numero-iscritti: INT; NULLABLE
+    voto-minimo: TINYINT ; NOT NULLABLE
+    voto-massimo: TINYINT ; NOT NULLABLE
+
+// STUDENTE
+
+    id-studente: INT; NOT NULLABLE ; UNIQUE
+    nome: VARCHAR(64) ; NOT NULLABLE
+    cognome: VARCHAR(64) ; NOT NULLABLE
+    genere: VARCHAR(16) ; NOT NULLABLE 
+    foto-profilo: VARCHAR ; NOT NULLABLE
+    email: VARCHAR(64) ; NOT NULLABLE ; UNIQUE
+    tel: VARCHAR(32) ; NULLABLE 
+    tipo-documento: VARCHAR(16) ; NOT NULLABLE 
+    documento: VARCHAR(16) ; NOT NULLABLE ; UNIQUE
+    indirizzo: VARCHAR ; NOT NULLABLE
+    data-nascita: DATE ; NOT NULLABLE
+    luogo-nascita: VARCHAR(64) ; NOT NULLABLE
+    codice-fiscale: VARCHAR(32) ; NOT NULLABLE ; UNIQUE
+    frequenza-presenze: TINYINT ; NOT NULLABLE
+    frequenza-assenze: TINYINT ; NOT NULLABLE
+    totale-esami-sostenuti: TINYINT ; NOT NULLABLE
+    totale-esami-non-sostenuti: TINYINT ; NOT NULLABLE
+    CFU: INT ; NULLABLE
+
+// ESITO
+
+    media-matematica: TINYINT ; NOT NULLABLE
+    media-ponderata: TINYINT ; NOT NULLABLE
+    voto-finale: VARCHAR(16) ; NOT NULLABLE
+    lode: VARCHAR (16) ; NOT NULLABLE
+    laurea-conseguita: VARCHAR(64) ; NOT NULLABLE
+    grado-laurea: VARCHAR(16) ; NOT NULLABLE
